@@ -6,6 +6,7 @@ package com.danny.lambda;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.stream.Collectors;
 
 import com.danny.domain.Apple;
 
@@ -72,6 +73,11 @@ public class AppleCountOfLambda {
 		return list;
 	}
 
+	private static List<Apple> findAppleByLambdaExpression(List<Apple> apples) {
+		return apples.stream().filter(apple -> "green".equals(apple.getColor()))
+				.collect(Collectors.toList());
+	}
+
 	public static void main(String[] args) {
 		// 1、
 		List<Apple> filterApple = findGreenApple(apples);
@@ -84,8 +90,18 @@ public class AppleCountOfLambda {
 		filterApple = findAppleByPredicate(apples,
 				new AppleGreenColorPredicate());
 		System.out.println(filterApple);
+		// lambda
+		filterApple = findAppleByLambdaExpression(apples);
+		System.out.println("lambda >>" + filterApple);
+
+		// functionalInterface
+		filterApple = findAppleByPredicate(apples, apple -> {
+			return "green".equals(apple.getColor());
+		});
+		System.out.println("functionalInterface >> "+filterApple);
 	}
 
+	//@FunctionalInterface
 	interface ApplePredicate {
 		boolean test(Apple apple);
 	}

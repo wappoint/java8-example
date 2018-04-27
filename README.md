@@ -1,2 +1,2 @@
-# java8-example
-java 8 example , learning java 8 features.
+# java8 学习案例
+## 1、Lambda表达式的引出。
