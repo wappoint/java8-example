@@ -6,8 +6,6 @@ package com.danny.lambda;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
-import java.util.function.Function;
-import java.util.function.Predicate;
 
 import com.danny.domain.Apple;
 
@@ -43,10 +41,11 @@ public class HowToDefineLambdaExpression {
 
 		compareByColor = (o1, o2) -> o1.getColor().compareTo(o2.getColor());
 
-		Function<String, Integer> funLambda = s -> s.length();
+		// valid lambda expression
+		// s -> s.length();
 
-		Predicate<Apple> funApple = (Apple apple) -> apple.getColor()
-				.equals("green");
+		// valid lambda expression
+		// (Apple apple) -> apple.getColor().equals("green");
 
 	}
 
