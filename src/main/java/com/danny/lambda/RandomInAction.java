@@ -21,14 +21,19 @@ public class RandomInAction {
 			int result = generateRandom(5, 10);
 			System.out.println(result);
 		}
-		StringJoiner sj = new StringJoiner(",");
-		sj.add("apc").add("ddd").add("xxx");
-		System.out.println(sj);
+		String result = stringJoiner();
+		System.out.println(result);
 	}
 
 	private static int generateRandom(int min, int max) {
 		Random random = new Random();
 		return random.ints(min, max + 1).limit(1).findFirst().getAsInt();
+	}
+
+	private static String stringJoiner() {
+		StringJoiner sj = new StringJoiner(",");
+		sj.add("apc").add("ddd").add("xxx");
+		return sj.toString();
 	}
 
 }
